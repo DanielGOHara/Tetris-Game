@@ -3,8 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
     let squares = Array.from(document.querySelectorAll('.grid div'))
     const scoreDisplay = document.querySelector('#score')
+
     const startBtn = document.querySelector('#start_button')
     const width = 10
+    const colors = ['orange', 'red', 'purple', 'green', 'blue']
     let nextRandom = 0, score = 0
     let timerid
 
@@ -56,12 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function draw() {
         current.forEach(index => {
             squares[currentPosition + index].classList.add('tetromino')
+            squares[currentPosition + index].style.backgroundColor = colors[random]
         })
     }
 
     function undraw() {
         current.forEach(index => {
             squares[currentPosition + index].classList.remove('tetromino')
+            squares[currentPosition + index].style.backgroundColor = ''
         })
     }
 
@@ -144,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         freeze()
     }
 
-    const displaySqaures = document.querySelectorAll('.minigrid div')
+    const displaySquares = document.querySelectorAll('.minigrid div')
     const displayWidth = 4
     let displayIndex = 0
 
@@ -158,11 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayShape() {
         //Remove any trace of tetromino
-        displaySqaures.forEach(squares => {
+        displaySquares.forEach(squares => {
             squares.classList.remove('tetromino')
+            squares.style.backgroundColor = ''
         })
         upNextTetromino[nextRandom].forEach(index => {
-            displaySqaures[displayIndex + index].classList.add('tetromino')
+            displaySquares[displayIndex + index].classList.add('tetromino')
+            displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
         })
     }
 
