@@ -70,14 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     //Assign functions to keycodes
-    function control(e) {
-        if(e.keyCode === 37 && timerid != null) {        //Move Left
+    function control(event) {
+        if(event.keyCode === 37 && timerid != null) {        //Move Left
             moveLeft()
-        } else if(e.keyCode === 38 && timerid != null) { //Rotate
+        } else if(event.keyCode === 38 && timerid != null) { //Rotate
             rotate()
-        } else if(e.keyCode === 39 && timerid != null) { //Move Right
+        } else if(event.keyCode === 39 && timerid != null) { //Move Right
             moveRight()
-        } else if(e.keyCode === 40 && timerid != null) { //Move Down
+        } else if(event.keyCode === 40 && timerid != null) { //Move Down
             moveDown()
         }
     }
@@ -141,13 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
         draw()
     }
 
-    function moveDown() {
-        undraw()
-        currentPosition += width
-        draw()
-        freeze()
-    }
-
     const displaySquares = document.querySelectorAll('.minigrid div')
     const displayWidth = 4
     let displayIndex = 0
@@ -199,6 +192,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function restart() {
+        undraw()
+
+        score = 0
 
     }
 
