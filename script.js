@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
 
     const oTetromino = [
-        [0, 1, width, width+1],
-        [0, 1, width, width+1],
-        [0, 1, width, width+1],
-        [0, 1, width, width+1]
+        [1, 2, width+1, width+2],
+        [1, 2, width+1, width+2],
+        [1, 2, width+1, width+2],
+        [1, 2, width+1, width+2]
     ]
 
     const iTetromino = [
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [1, displayWidth+1, displayWidth*2+1, 2],
         [displayWidth+1, displayWidth+2, displayWidth*2, displayWidth*2+1],
         [1, displayWidth, displayWidth+1, displayWidth+2],
-        [0, 1, displayWidth, displayWidth+1],
+        [displayWidth+1, displayWidth+2, displayWidth*2+1, displayWidth*2+2],
         [1, displayWidth+1, displayWidth*2+1, displayWidth*3+1]
     ]
 
@@ -189,6 +189,10 @@ document.addEventListener('DOMContentLoaded', () => {
             scoreDisplay.innerHTML = 'Game Over!'
             clearInterval(timerid)
         }
+    }
+
+    function restart() {
+
     }
 
     startBtn.addEventListener('click', () => {
