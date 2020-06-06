@@ -71,13 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Assign functions to keycodes
     function control(e) {
-        if(e.keyCode === 37) {        //Move Left
+        if(e.keyCode === 37 && timerid != null) {        //Move Left
             moveLeft()
-        } else if(e.keyCode === 38) { //Rotate
+        } else if(e.keyCode === 38 && timerid != null) { //Rotate
             rotate()
-        } else if(e.keyCode === 39) { //Move Right
+        } else if(e.keyCode === 39 && timerid != null) { //Move Right
             moveRight()
-        } else if(e.keyCode === 40) { //Move Down
+        } else if(e.keyCode === 40 && timerid != null) { //Move Down
             moveDown()
         }
     }
@@ -182,6 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 row.forEach(index => {
                     squares[index].classList.remove('taken')
                     squares[index].classList.remove('tetromino')
+                    squares[index].style.backgroundColor = ''
                 })
                 const squaresRemoved = squares.splice(i , width)
                 squares = squaresRemoved.concat(squares)
@@ -201,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    startBtn.addEventListener('click', () => {
+    function start_pause() {
         if(timerid) {
             clearInterval(timerid)
             timerid =  null
@@ -211,6 +212,10 @@ document.addEventListener('DOMContentLoaded', () => {
             nextRandom = Math.floor(Math.random() * theTetrominos.length)
             displayShape()
         }
+    }
+
+    startBtn.addEventListener('click', () => {
+        start_pause()
     })
 
 })
