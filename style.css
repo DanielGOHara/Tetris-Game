@@ -4,8 +4,9 @@ html {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow: hidden;
 
+    font-family: "Lucida Console", Courier, monospace;
     background-color: darkgray;
 }
 
@@ -19,16 +20,25 @@ body {
     background: white;
 }
 
+.bodyContainer {
+    text-align: center;
+}
+
 .grid {
-    left: 35%;
+    display: inline-flex;
+    flex-wrap: wrap;
     width: 200px;
     height: 400px;
     margin: 10px;
-    display: flex;
-    flex-wrap: wrap;
+    vertical-align: top;
 
     background-color: steelblue;
     border: medium solid black;
+    border-radius: 5px;
+}
+
+.tetromino {
+    background-color: blue;
 }
 
 .grid div {
@@ -37,15 +47,16 @@ body {
 }
 
 .minigrid {
-    top: 45%;
-    left: 55%;
-    width: 80px;
-    height: 80px;
     display: flex;
     flex-wrap: wrap;
+    padding: 5px;
+    width: 80px;
+    height: 80px;
+    margin-top: 5px;
 
     background-color: steelblue;
     border: medium solid black;
+    border-radius: 5px;
 }
 
 .minigrid div {
@@ -53,56 +64,56 @@ body {
     height: 20px;
 }
 
-.content_container {
-    position: relative;
+.sidebarContent {
+    display: inline-flex;
+    flex-direction: column;
+    top: 50%;
+    width: 180px;
+    margin: 10px;
+}
+
+.scoreContainer {
     padding: 10px;
-    height: 80px;
     width: 155px;
+    text-align: center;
 
     background-color: steelblue;
     border: medium groove black;
+    border-radius: 5px;
 }
 
-.content_container #score_count {
+.scoreContainer #scoreCount {
     padding: 10px;
     height: 15px;
-    width: 100px;
     margin: 10px;
 
     background-color: steelblue;
-    border-style: solid;
-    border-width: medium;
-    border-color: black;
-
-    font-family: "Lucida Console", Courier, monospace;
+    border: medium solid black;
+    border-radius: 5px;
 }
 
-.content_container #start_button {
+.scoreContainer #startButton {
+    cursor: pointer;
     margin-right: 2px;
 
     background-color: steelblue;
     border: medium groove black;
+    border-radius: 5px;
 }
 
-.content_container #start_button:hover {
+.scoreContainer #startButton:hover, .scoreContainer #restartButton:hover {
     background-color: dodgerblue;
 }
 
-.content_container #score_button:focus {
+.scoreContainer #scoreButton:focus, .scoreContainer #restartButton:focus {
     outline: none;
 }
 
-.content_container #restart_button {
+.scoreContainer #restartButton {
+    cursor: pointer;
+    margin-top: 5px;
 
     background-color: steelblue;
     border: medium groove black;
-}
-
-.content_container #restart_button:hover {
-    background-color: dodgerblue;
-    border-color: white;
-}
-
-.tetromino {
-    background-color: blue;
+    border-radius: 5px;
 }

@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
     const displaySquares = document.querySelectorAll('.minigrid div')
     const scoreDisplay = document.querySelector('#score')
-    const startBtn = document.querySelector('#start_button')
+    const startBtn = document.querySelector('#startButton')
+    const restartBtn = document.querySelector('#restartButton');
     let squares = Array.from(document.querySelectorAll('.grid div'))
 
     // Creates basic const & let variables and assigns values to them --------------------------------------------------
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const width = 10, displayWidth = 4
     const colors = ['orange', 'red', 'purple', 'green', 'blue']
     let nextRandom = 0, score = 0, displayIndex = 0
-    let timerid
+    let timerid;
 
     // Creates arrays for each type of Tetromino -----------------------------------------------------------------------
 
@@ -222,7 +223,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     startBtn.addEventListener('click', () => {
-        start_pause()
-    })
+        start_pause();
+    });
 
-})
+    restartBtn.addEventListener('click', () => {
+        restart();
+    });
+});
