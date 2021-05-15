@@ -82,14 +82,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // Assign button presses to functions. -----------------------------------------------------------------------------
 
   function control(event) {
-    if(event.keyCode === 37 && timerid != null) {        //Move Left
-      moveLeft();
-    } else if(event.keyCode === 38 && timerid != null) { //Rotate
-      rotate();
-    } else if(event.keyCode === 39 && timerid != null) { //Move Right
-      moveRight();
-    } else if(event.keyCode === 40 && timerid != null) { //Move Down
-      moveDown();
+    if(scoreDisplay.innerHTML !== "Game Over!") {
+      if (event.keyCode === 37 && timerid != null) {        //Move Left
+        moveLeft();
+      } else if (event.keyCode === 38 && timerid != null) { //Rotate
+        rotate();
+      } else if (event.keyCode === 39 && timerid != null) { //Move Right
+        moveRight();
+      } else if (event.keyCode === 40 && timerid != null) { //Move Down
+        moveDown();
+      }
     }
   }
 
@@ -245,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function start_pause() {
-    if(score !== "Game Over!") {
+    if(scoreDisplay.innerHTML !== 'Game Over!') {
       if (timerid) {
         clearInterval(timerid)
         timerid = null
