@@ -1,9 +1,7 @@
 # TetrisGame.github.io
-Tetris Game Project (HTML, Javascript &amp; CSS)
+Tetris Game Project (Javascript, HTML5 &amp; CSS3)
 
--- Work in progress --
-
-Create a functioning tetris game using the above languages to help further my understanding of them :)
+Fully functioning tetris game using vanilla web development languages, provides a basic gaming experience with not if any advanced features to ensure I am able to understand the fundamental basics of web development. Currently ran using github pages but in the future may not be live, in which case it can be simply forked and ran from another device without further requirements.
 
 Link: https://danielgohara.github.io/TetrisGame.github.io/
 
