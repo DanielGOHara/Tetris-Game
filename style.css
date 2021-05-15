@@ -7,21 +7,16 @@ html {
   overflow: hidden;
 
   font-family: "Lucida Console", Courier, monospace;
-  background-color: darkgray;
 }
 
 body {
-  position: relative;
   padding: 10px;
   height: 100%;
   width: 100%;
   margin: 0;
-
-  background: white;
 }
 
 .bodyContainer {
-  height: 100%;
   text-align: center;
 }
 
@@ -30,7 +25,7 @@ body {
   flex-wrap: wrap;
   width: 200px;
   height: 400px;
-  margin: 13% 10px 10px;
+  margin: 10px;
 
   vertical-align: top;
 
@@ -69,9 +64,8 @@ body {
 .sidebarContent {
   display: inline-flex;
   flex-direction: column;
-  top: 50%;
   width: 180px;
-  margin: 13% 10px 10px;
+  margin: 10px;
   text-align: center;
 }
 
