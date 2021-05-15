@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Assigns information from the CSS file to const & let variables using a query function ---------------------------
+  // Assigns information from the CSS file to const & let variables using a query function. --------------------------
 
   const grid = document.querySelector('.grid')
   const displaySquares = document.querySelectorAll('.minigrid div')
@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const restartBtn = document.querySelector('#restartButton');
   let squares = Array.from(document.querySelectorAll('.grid div'))
 
-  // Creates basic const & let variables and assigns values to them --------------------------------------------------
+  // Creates basic const & let variables and assigns values to them. -------------------------------------------------
 
   const width = 10, displayWidth = 4
   const colors = ['orange', 'red', 'purple', 'green', 'blue']
   let nextRandom = 0, score = 0, displayIndex = 0
   let timerid;
 
-  // Creates arrays for each type of Tetromino -----------------------------------------------------------------------
+  // Creates arrays for each type of Tetromino. ----------------------------------------------------------------------
 
   const lTetromino = [
     [1, width+1, width*2+1, 2],
@@ -53,17 +53,17 @@ document.addEventListener('DOMContentLoaded', () => {
     [width, width+1, width+2, width+3]
   ];
 
-  // Create array that stores each Tetromino array -------------------------------------------------------------------
+  // Create array that stores each Tetromino array. ------------------------------------------------------------------
 
   const theTetrominos = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
   let currentPosition = 4, currentRotation = 0;
 
-  // Variables that randomly selects a Tetromino array ----------------------------------------------------------------
+  // Variables that randomly selects a Tetromino. --------------------------------------------------------------------
 
   let random = Math.floor(Math.random() * theTetrominos.length);
   let current = theTetrominos[random][currentRotation];
 
-  // Draw & Undraw Functions -----------------------------------------------------------------------------------------
+  // Draw & Undraw Functions. ----------------------------------------------------------------------------------------
 
   function draw() {
     current.forEach(index => {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Assign button presses to functions ------------------------------------------------------------------------------
+  // Assign button presses to functions. -----------------------------------------------------------------------------
 
   function control(event) {
     if(event.keyCode === 37 && timerid != null) {        //Move Left
@@ -95,13 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keyup', control);
 
-  // Movement functions ----------------------------------------------------------------------------------------------
+  // Movement Functions. ---------------------------------------------------------------------------------------------
 
   function freeze() {
     if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
       current.forEach(index => squares[currentPosition + index].classList.add('taken'));
 
-      //Start a new tetromino
+      // Start a new Tetromino.
 
       random = nextRandom;
       nextRandom = Math.floor(Math.random() * theTetrominos.length);
@@ -144,6 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     draw();
   }
+
+  // Rotate Function. ------------------------------------------------------------------------------------------------
 
   function rotate() {
 
@@ -190,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  // Display next Tetromino function ---------------------------------------------------------------------------------
+  // Display next Tetromino variable. --------------------------------------------------------------------------------
 
   const upNextTetromino = [
     [1, displayWidth+1, displayWidth*2+1, 2],
@@ -202,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function displayShape() {
 
-    //Remove any trace of tetromino
+    //Remove any trace of Tetromino.
 
     displaySquares.forEach(squares => {
       squares.classList.remove('tetromino');
@@ -214,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // General game functionality functions ----------------------------------------------------------------------------
+  // General game functionality functions. ---------------------------------------------------------------------------
 
   function addScore() {
     for(let i = 0; i < 199; i += width) {
@@ -255,6 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+  // Event Listeners for the start/pause & restart buttons.
 
   startBtn.addEventListener('click', () => {
     start_pause();
