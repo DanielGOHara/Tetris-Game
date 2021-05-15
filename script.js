@@ -146,16 +146,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function rotate() {
+
+    // Depending on which tetromino is currently used certain parameters will be set for when it is rotated near edges.
+
     if(random !== 3) {
-      if(random === 0 || random === 2) { // L
-        if(currentPosition % 10 === 8) {
-          undraw();
-          currentPosition -= 1;
-          draw();
-        } else if(currentPosition % 10 === 9) {
-          undraw();
-          currentPosition += 1;
-          draw()
+      if(random === 0 || random === 1 || random === 2) {
+        if(random !== 1) {
+          if (currentPosition % 10 === 8) {
+            undraw();
+            currentPosition -= 1;
+            draw();
+          } else if (currentPosition % 10 === 9) {
+            undraw();
+            currentPosition += 1;
+            draw()
+          }
+        } else {
+          if (currentPosition % 10 === 8) {
+            undraw();
+            currentPosition -= 1;
+            draw();
+          }
         }
       } else if(random === 4) {
         if (currentPosition % 10 === 8) {
